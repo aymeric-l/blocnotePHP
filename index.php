@@ -16,3 +16,11 @@ while($contenu = $donnees->fetch()){	// Boucle pour afficher tout le contenu de 
 }	// Affichera le nom du jeu et son prix si le chiffre choisi dans l'url 
 	// avec index.php?prix=votreChiffre correspond au prix d'un jeu dans le tableau
 ?>
+
+
+ <!-- COOKIE -->
+
+ <?php 
+ setcookie('Nom_Du_Cookie', 'Valeur_Du_Cookie', time() + 365*24*3600, null, null, false, true); 
+ // Creer un cookie avec un nom, une valeur, et 365 jours de delai              //  Securitée contre les script dans les cookies
+  ?>
