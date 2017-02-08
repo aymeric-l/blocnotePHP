@@ -29,12 +29,21 @@ $fichier = file('score.txt'); 	// Met le contenu de 'score.txt' dans la variable
 			$ligneDeux = array("pseudo" => $ligne[0], "minute" => $ligne[1], "seconde" => $ligne[2]);
 
 
-			array_push($grosTableau, $ligneDeux);  
+			array_push($grosTableau, $ligne);  
 			// Push le tableau précedement crée(avec $ligne ou $ligneDeux, associatif ou non au choix) dans le gros tableau
 							// Le gros tableau multidimensionnel contiendra autant de tableaux que de lignes dans le fichier txt
 			}
 
-	// Afficher le contenu du tableau VERSION MULTIDIMENTIONNEL CLASSIQUE
+
+		// FONCTION TRI PAR ORDRE CROISSANT - DECROISSANT ///
+		// /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ /!\ 
+			$tri = Array(); 
+			foreach($grosTableau as &$ma) 
+   			$tri[] = &$ma[2];  // ou alors =&ma['seconde'] si on choisi de push $ligneDeux à la place de $ligne
+			array_multisort($tri,SORT_ASC, $grosTableau);
+
+
+	// Afficher le contenu en brut du tableau VERSION MULTIDIMENTIONNEL CLASSIQUE
 	// On affiche la 5eme valeur -> [4] du premier tableau ->[0]
 	// (équivalent à la valeur situé apres la 4eme virgule de la premiere ligne du fichier txt) 
 	echo $grosTableau[0][4] . '</br>'; 
